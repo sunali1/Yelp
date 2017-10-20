@@ -45,8 +45,12 @@ feature 'Restaurant' do
       # binding.pry
       click_link 'Edit'
       fill_in 'restaurant[name]', with: 'Bondos'
+      fill_in 'restaurant[location]', with: 'Los Lobos'
+      fill_in 'restaurant[description]', with: 'SuperDuper'
       click_button 'Update Restaurant'
       expect(page).to have_content ('Bondos')
+      expect(page).to have_content ('Los Lobos')
+      expect(current_path).to eq '/restaurants/1'
     end
   end
 

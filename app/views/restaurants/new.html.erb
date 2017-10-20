@@ -1,39 +1,5 @@
-
 <h1>Add Restaurant</h1>
-<%= form_with scope: :restaurant, url: restaurants_path, local: true do |form| %>
-<% if @restaurant.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@restaurant.errors.count, "error") %> prohibited
-        this restaurant from being saved:
-      </h2>
-      <ul>
-        <% @restaurant.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= form.label :name %><br>
-    <h4>Restaurant Name</h4>
-    <%= form.text_field :name %>
-  </p>
 
-  <p>
-    <%= form.label :location %><br>
-    <h4>Restaurant Location</h4>
-    <%= form.text_area :location %>
-  </p>
+<%= render 'form' %>
 
-  <p>
-    <%= form.label :description %><br>
-    <h4>RestaurantrDescription</h4>
-    <%= form.text_area :description %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
 <%= link_to 'Back', restaurants_path %>
