@@ -19,7 +19,7 @@ feature 'Restaurant' do
     end
   end
 
-  context "New restuarant is being added" do
+  context "New invalid restuarant is being added" do
     scenario "does not let you submit a name that is too short" do
       visit '/restaurants/new'
       visit '/restaurants/new'
@@ -35,6 +35,18 @@ feature 'Restaurant' do
       visit '/restaurants'
       click_link 'Show'
       expect(current_path).to eq '/restaurants/1'
+    end
+  end
+
+  context "editing restaurant" do
+    scenario "lets a user edit" do
+      create_restaurant
+      visit '/restaurants/1'
+      # binding.pry
+      click_link 'Edit'
+      fill_in 'restaurant[name]', with: 'Bondos'
+      click_button 'Update Restaurant'
+      expect(page).to have_content ('Bondos')
     end
   end
 
