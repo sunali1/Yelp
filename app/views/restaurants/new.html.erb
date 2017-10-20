@@ -1,0 +1,26 @@
+
+<h1>Add Restaurant</h1>
+<%= form_with scope: :restaurant, url: restaurants_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <h4>Restaurant Name</h4>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :location %><br>
+    <h4>Restaurant Location</h4>
+    <%= form.text_area :location %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <h4>RestaurantrDescription</h4>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', restaurants_path %>

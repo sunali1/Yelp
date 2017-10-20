@@ -1,3 +1,86 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// View all articles
+table
+{
+  border-collapse: collapse;
+  border:solid 1px #000;
+  margin:10px 5px;
+}
+
+th
+{
+  background:blue;
+  color:#fff;
+}
+
+td,th
+{
+  border:solid 1px #000;
+  padding:5px 10px;
+}
+
+// new articles
+.new_article_form
+{
+  background:grey;
+  border-radius:5px;
+  margin:auto;
+  max-width: 500px;
+  padding:10px;
+}
+
+label
+{
+  color:#fff;
+  display:block;
+  margin: auto auto 5px auto;
+  min-width: 170px;
+  text-align:center;
+  width:50%;
+}
+
+input[type=text]
+{
+  border:inset;
+}
+
+input
+{
+
+  display:block;
+  margin:auto;
+  min-width: 170px;
+  padding:5px 10px;
+  width:50%;
+}
+
+textarea
+{
+  border:inset;
+  display:block;
+  margin:auto;
+  min-height:100px;
+  min-width:170px;
+  padding:5px 10px;
+  resize: none;
+  width:50%;
+
+}
+
+input[type=submit]
+{
+      -webkit-appearance: button;
+      font-size:16px;
+      margin:auto;
+      min-width:190px;
+      width:50%;
+}
+
+input[type=submit]:hover
+{
+  background:lightgrey;
+}
