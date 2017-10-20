@@ -19,6 +19,16 @@ feature 'Restaurant' do
     end
   end
 
+  context "New restuarant is being added" do
+    scenario "does not let you submit a name that is too short" do
+      visit '/restaurants/new'
+      visit '/restaurants/new'
+      fill_in "restaurant[name]", with: 'n'
+      submit_form
+      expect(page).to have_content 'error'
+    end
+  end
+
   context 'viewing restaurants' do
     scenario "lets a user view a restaurant" do
       create_restaurant

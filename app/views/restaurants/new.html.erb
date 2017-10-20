@@ -1,6 +1,19 @@
 
 <h1>Add Restaurant</h1>
 <%= form_with scope: :restaurant, url: restaurants_path, local: true do |form| %>
+<% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@restaurant.errors.count, "error") %> prohibited
+        this restaurant from being saved:
+      </h2>
+      <ul>
+        <% @restaurant.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <p>
     <%= form.label :name %><br>
     <h4>Restaurant Name</h4>
