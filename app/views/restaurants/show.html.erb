@@ -11,4 +11,7 @@
   <%= @restaurant.description %>
 </p>
 <td><%= link_to "Edit", edit_restaurant_path(@restaurant) %></td>
-<td><%= link_to "Back", restaurant_path(@restaurant) %></td>
+<td><%= link_to "Back", restaurants_path %></td>
+<td><%= link_to "Delete", restaurant_path(@restaurant),
+        method: :delete,
+        data: { confirm: 'Are you sure?'} %></td>

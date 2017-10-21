@@ -21,6 +21,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
 
     if @restaurant.save
+      redirect_to @restaurant, notice: "Restaurant was successfully added"
     else
       render 'new'
     end
@@ -30,11 +31,18 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
 
     if @restaurant.update(restaurant_params)
-      redirect_to @restaurant
+      redirect_to @restaurant, notice: "Restaurant was successfully updated!"
     else
       render 'edit'
     end
 
+  end
+
+  def destroy
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+
+    redirect_to restaurants_path
   end
 
   private

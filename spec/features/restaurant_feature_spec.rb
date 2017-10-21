@@ -22,14 +22,13 @@ feature 'Restaurant' do
   context "New invalid restuarant is being added" do
     scenario "does not let you submit a name that is too short" do
       visit '/restaurants/new'
-      visit '/restaurants/new'
       fill_in "restaurant[name]", with: 'n'
       submit_form
       expect(page).to have_content 'error'
     end
   end
 
-  context 'viewing restaurants' do
+  context 'Viewing restaurants' do
     scenario "lets a user view a restaurant" do
       create_restaurant
       visit '/restaurants'
@@ -38,7 +37,7 @@ feature 'Restaurant' do
     end
   end
 
-  context "editing restaurant" do
+  context "Editing restaurant" do
     scenario "lets a user edit" do
       create_restaurant
       visit '/restaurants/1'
@@ -51,6 +50,16 @@ feature 'Restaurant' do
       expect(page).to have_content ('Bondos')
       expect(page).to have_content ('Los Lobos')
       expect(current_path).to eq '/restaurants/1'
+    end
+  end
+
+  context "Deleting a restaurant " do
+    scenario "lets user delete own restaurant" do
+      create_restaurant
+      visit '/restaurants/1'
+      click_link 'Delete'
+      expect(page).not_to have_content "Nandos"
+      # expect(page).to have_content "Restaurant was deleted successfully"
     end
   end
 
